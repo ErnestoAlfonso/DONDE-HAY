@@ -1,0 +1,96 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Donde_Hay_Test",
+    "dateExported": "2024-03-10T02:29:16.983Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "53b6cbe7-b5de-44ff-81f0-628dd1c3345b",
+            "name": "UserMethods",
+            "containerId": "",
+            "created": "2024-03-09T23:59:23.548Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "da646636-a50b-4f91-ab81-e61a24f1ac33",
+            "colId": "da9ad384-88d7-4267-bc97-89f89a91d5b3",
+            "containerId": "53b6cbe7-b5de-44ff-81f0-628dd1c3345b",
+            "name": "GetUsers",
+            "url": "http://127.0.0.1:8000/users/2",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-09T17:31:39.574Z",
+            "modified": "2024-03-09T17:43:41.673Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1b40af24-859c-4cb3-a59c-8c0c3ea81c05",
+            "colId": "da9ad384-88d7-4267-bc97-89f89a91d5b3",
+            "containerId": "53b6cbe7-b5de-44ff-81f0-628dd1c3345b",
+            "name": "SearchUser",
+            "url": "http://127.0.0.1:8000/users/searchBy?field=otro&value=correo",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-03-10T00:00:01.119Z",
+            "modified": "2024-03-10T00:38:55.141Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "field",
+                    "value": "otro",
+                    "isPath": false
+                },
+                {
+                    "name": "value",
+                    "value": "correo",
+                    "isPath": false
+                }
+            ],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "ba44adc0-6b51-41b3-8f71-3a089f4a4d97",
+            "colId": "da9ad384-88d7-4267-bc97-89f89a91d5b3",
+            "containerId": "53b6cbe7-b5de-44ff-81f0-628dd1c3345b",
+            "name": "CreateUser",
+            "url": "http://127.0.0.1:8000/users/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-09T17:32:59.414Z",
+            "modified": "2024-03-09T17:40:13.720Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\" : \"pepe\",\n  \"phone\": \"53881461\",\n  \"email\": \"correo@gmail.com\"\n}",
+                "form": []
+            },
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "5db05896-20df-433b-8024-814f3907cea6",
+            "colId": "da9ad384-88d7-4267-bc97-89f89a91d5b3",
+            "containerId": "53b6cbe7-b5de-44ff-81f0-628dd1c3345b",
+            "name": "UpdateUser",
+            "url": "http://127.0.0.1:8000/users/2/",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-09T17:59:28.247Z",
+            "modified": "2024-03-09T18:02:13.743Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\" : \"pepa\",\n  \"phone\": \"53881461\",\n  \"email\": \"correo@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

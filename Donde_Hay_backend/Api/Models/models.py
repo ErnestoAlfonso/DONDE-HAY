@@ -3,18 +3,11 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 
-# Create your models here.
-
-# class UserManager(models.Manager):
-#     def create_user(self, username, email, phone, password):
-#         user = self.create(username=username, email=email, phone=phone, password=password)
-#         return user
-
-
 class User(models.Model):
     username = models.CharField(max_length=100)
     phone = models.CharField(max_length=8)
     email = models.EmailField(max_length=254)
+    #TODO : add password field
 
 
     def __str__(self):
@@ -29,31 +22,23 @@ class User(models.Model):
             raise ValidationError(_("El número escrito no es correcto, por favor ingrese un número válido"))
 
 
-
-class Publication(models.Model):
-    title = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    productos = models.CharField(max_length=100)
+class Location(models.Model):
     latitud = models.DecimalField(max_digits=9, decimal_places=6)
     longitud = models.DecimalField(max_digits=9, decimal_places=6)
-    date_time = models.DateTimeField()
-    comments = models.JSONField(
-        blank=True,
-        null=True
-    )
+    direction = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.title
-
+class SalePlace(models.Model):
+    name = models.CharField(max_length=255, default="")
+    location = models.ForeignKey(Location, related_name = "location", on_delete=models.CASCADE)
 
 
 class Product(models.Model):
-    publication = models.ForeignKey(Publication, on_delete=models.CASCADE)
-    name_of_product = models.CharField(max_length = 255)
+    salePlace = models.ForeignKey(SalePlace, related_name="salePlace", default = None, primary_key = True, on_delete=models.CASCADE)
+    name = models.CharField(max_length = 255)
     price = models.FloatField(max_length = 45)
 
     def __str__(self):
-        return self.name_of_product
+        return self.name
 
     def clean(self):
         if self.price is None or self.price < 0:
